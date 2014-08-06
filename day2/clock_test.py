@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 #create a class called clock
 #should have a method called at 
 #hint: use default arguments
 
 import unittest
 from clock import *
+=======
+import unittest
+from clock import Clock
+>>>>>>> upstream/master
 
 class ClockTest(unittest.TestCase):
 
@@ -26,6 +31,7 @@ class ClockTest(unittest.TestCase):
     clock = Clock.at(23, 30) + 60
     self.assertEqual("00:30", clock.__str__())
 
+<<<<<<< HEAD
 #   def test_subtract_minutes(self):
 #     clock = Clock.at(10) - 90
 #     self.assertEqual("08:30", clock.__str__())
@@ -48,3 +54,28 @@ class ClockTest(unittest.TestCase):
 # 
 if __name__ == '__main__':
   unittest.main()  
+=======
+  def test_subtract_minutes(self):
+    clock = Clock.at(10) - 90
+    self.assertEqual("08:30", clock.__str__())
+
+  def test_equivalent_clocks(self):
+    clock1 = Clock.at(15, 37)
+    clock2 = Clock.at(15, 37)
+    self.assertEqual(clock1, clock2)
+
+  def test_inequivalent_clocks(self):
+    clock1 = Clock.at(15, 37)
+    clock2 = Clock.at(15, 36)
+    clock3 = Clock.at(14, 37)
+    self.assertNotEqual(clock1, clock2)
+    self.assertNotEqual(clock1, clock3)
+
+  def test_wrap_around_backwards(self):
+    clock = Clock.at(0, 30) - 60
+    self.assertEqual("23:30", clock.__str__())
+
+if __name__ == '__main__':
+  unittest.main() 
+
+>>>>>>> upstream/master
