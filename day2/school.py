@@ -27,7 +27,7 @@ class School():
 		print "Ok."
 	
 	def grade(self, grade_level):
-		if self.db.has_key(grade_level):
+		if grade_level in self.db:
 			return self.db[grade_level]
 		else: 
 			return None 
