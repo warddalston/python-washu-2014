@@ -19,20 +19,30 @@ class School():
 		self.db = {} #this is the data base of students.  It's a dictionary
 	
 	def add(self, student_name, student_grade):
-		print "Add %s to grade %d at %s." % (student_name, student_grade, self.name)
+		try:
+			student_grade = int(student_grade)
+		except:
+			print "Oops! " + str(student_grade) + " isn't a valid grade at this school."
+			raise Exception 
+		print "Add %s to grade %d at %s. Ok" % (student_name, student_grade, self.name)
 		if not self.db.has_key(student_grade):
-			self.db[student_grade] = {student_name}
-		else:
-			self.db[student_grade].add(student_name)
-		print "Ok."
+			self.db[student_grade] = set()
+		self.db[student_grade].add(student_name)
 	
 	def grade(self, grade_level):
+		print "Which students are enrolled in grade %d?" % grade_level
 		if grade_level in self.db:
+			print "We've got %s right now." % ", ".join(self.db[grade_level])
 			return self.db[grade_level]
 		else: 
+			print "No one's in this grade!"
 			return None 
 	
 	def sort(self):
+		print "Who all is enrolled at %s right now?" % self.name
+		for student_grade in self.db:
+			self.db[student_grade] = tuple(sorted(self.db[student_grade]))
+			print "grade " + str(student_grade) + ": " + ", ".join(self.db[student_grade]) + ". "
 		return self.db
 			
 	#The next two lines will print the school name if I just do "print school"
@@ -40,9 +50,17 @@ class School():
 		return self.name
 	
 	
-
+# 
 # school = School("Haleakala Hippy School")
 # school.add("Dalston", 2)
 # school.add("Jay", 2)
+# school.add("Tommy", 3)
+# school.add("Ian", 3)
+# school.add("Jan", 1)
+# school.add("Frank", 10)
+# school.add("Frank", "pi")
+
 # print school
 # print school.db
+# school.sort()
+# school.grade(2)
