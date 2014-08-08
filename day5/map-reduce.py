@@ -7,12 +7,12 @@ def cub(x): return x**3
 
 # mapping
 for x in items sqr(x)
-map(sqr, items)
+map(sqr, items) #basically just apply from R
 list(map((lambda x: x **2), items))
 
 funcs = [sqr, cub]
 for i in items:
-    value = map(lambda x: x(i), funcs)
+    value = map(lambda x: x(i), funcs)  #lambda creates a temporary function 
     print value
 
 def mymap(aFunc, aSeq):
@@ -24,7 +24,7 @@ mymap(sqr, [1,2,3])
 
 # reducing and filtering
 range(-5, 5)
-filter((lambda x: x < 0), range(-5,5))
+filter((lambda x: x < 0), range(-5,5)) #return all of the values which make the funciton in labmda true
 
 from functools import reduce
 reduce( (lambda x, y: x * y), items )
