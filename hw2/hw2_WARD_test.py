@@ -88,7 +88,7 @@ class PortfolioTest(unittest.TestCase):
 		self.portfolio.addCash(300.50) 
 		self.portfolio.buyMutualFund(3, self.BRT)		
 		self.portfolio.buyStock(5, self.HFH)
-		self.assertEqual("Available Funds: $197.50 \nStocks: \n\t5  HFH\nMutual Funds: \n\t3  BRT\n", self.portfolio.__str__())
+		self.assertEqual("Account holder: Dalston Ward\nAvailable Funds: $197.50 \nStocks: \n\t5  HFH\nMutual Funds: \n\t3  BRT\n", self.portfolio.__str__())
 
 if __name__ == '__main__':
   unittest.main() 
