@@ -45,3 +45,10 @@ def mergeSort(List):
 			j += 1
 	return merged 
 	
+# mylist1 = [4,6,1,8, 235, 1325, 3246, 2346, 653, 1325, 45, 5, 87, 1145, 5578]
+# mylist2 = ["hello", "cardinal", "cheese", "pizza", "soccer", "dalston", "ward"]
+# 
+# print selectionSort(mylist1)
+# print selectionSort(mylist2)
+# print mergeSort(mylist1)
+# print mergeSort(mylist2)
