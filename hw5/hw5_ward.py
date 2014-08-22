@@ -24,7 +24,7 @@ visited = []
 links_index = 0 
 
 #keep looking while there are unvisited links and while you haven't started
-while (len(links2) != len(visited) ) or (len(visited) == 0):
+while ((len(links2) + 1) != len(visited) ) or (len(visited) == 0):
 		
 	#where are we now?
 	print page_to_scrape
@@ -71,6 +71,9 @@ while (len(links2) != len(visited) ) or (len(visited) == 0):
 		csvwriter.writerow([page_to_scrape, is_post, post_date, post_author, post_title, post_comments]) #Write these to the CSV  
 	else:
 		csvwriter.writerow([page_to_scrape, False, None, None, None, None]) #Write these to the CSV
+	
+	if ((len(links2) + 1) == len(visited) ):
+		break
 		
 	#get the next page on the list	
 	page_to_scrape = links2[links_index] 
