@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship, backref, sessionmaker
 print sqlalchemy.__version__
 
 #Connect to the local database, can use :memory: to just try it out in memory
-engine = sqlalchemy.create_engine('sqlite:////Users/mcdickenson/inclass.db', echo=True)
+engine = sqlalchemy.create_engine('sqlite:////Users/clockbob1/inclass.db', echo=True)
 
 Base = declarative_base() 
 
@@ -21,7 +21,7 @@ class Player(Base):
   id = Column(Integer, primary_key=True)
   name = Column(String)
   number = Column(Integer)
-  
+  								#this is a primary key in another table 
   team_id = Column(Integer, ForeignKey("teams.id"))
   
   def __init__(self, name, number, team=None):
