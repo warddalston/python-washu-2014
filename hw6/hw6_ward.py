@@ -1,4 +1,4 @@
-#Homework 6  - Dalston Ward
+#Homework 6  - Dalston Ward - August 2014
 
 import time
 import tweepy
